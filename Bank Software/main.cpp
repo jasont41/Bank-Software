@@ -41,21 +41,20 @@ int main(int argc, const char * argv[]) {
 }
 
 void menu(vector<customer_account>&accounts){
-    cout << "Enter menu selection: \n(1) Create Account \n(2) Deposit Money\n(3) Withdrawl Money\n(4) Display Account Info\n(5) Display All Accounts\n";
-    
+    cout << "Enter menu selection: \n(1) Create Account \n(2) Deposit Money\n(3) Withdrawl Money\n(4) Display Account Info\n(5) Display All Accounts\n(6) End Program\n";
     int input;
     cin >> input;
-    while(input < 6 && input > 0){
+    while(input < 7 && input > 0){
         if(input == 1){createAccount(accounts);}
         if(input == 2) {depositMoney(accounts);}
         if(input == 3) {withdrawlMoney(accounts);}
         if(input == 4) {displayInfo(accounts); }
         if(input == 5) {displayAccounts(accounts);}
+        if(input == 6) {exit(3);  }
     }
     menu(accounts);
 }
 int findAccount(vector<customer_account>& accounts){
-    //return accounts[0];
     int id = 0;
     cout << "Enter ID:";
     cin >> id;
@@ -99,8 +98,7 @@ void displayInfo(vector<customer_account>&accounts){
     menu(accounts);
 }
 void createAccount(vector<customer_account>&accounts){
-    int newID = 1000 + 1;
-    int(accounts.size()); // vector is zero-based so the size will give use index size + one, int cast to clear warning
+    int newID = 100 + int(accounts.size()); // vector is zero-based so the size will give use index size + one, int cast to clear warning
     if(newID == 0){
         newID = 1;
     }
